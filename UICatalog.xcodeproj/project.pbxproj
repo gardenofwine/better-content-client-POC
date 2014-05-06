@@ -44,6 +44,8 @@
 		96F3AAABBE7747FAB499EF62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE392CD34FA43E98682D0D2 /* libPods.a */; };
 		B244DDA21910CB2500ED0005 /* NOCNavigationControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */; };
 		B26886C11917CF0F00E5A969 /* NOCVisibleLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */; };
+		B26886C4191975C000E5A969 /* NOCContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C3191975C000E5A969 /* NOCContentController.m */; };
+		B26886C7191978CB00E5A969 /* NOCLabelsRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,10 @@
 		B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCNavigationControllerTableViewController.m; sourceTree = "<group>"; };
 		B26886BF1917CF0F00E5A969 /* NOCVisibleLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCVisibleLabels.h; path = NOC/NOCVisibleLabels.h; sourceTree = "<group>"; };
 		B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCVisibleLabels.m; path = NOC/NOCVisibleLabels.m; sourceTree = "<group>"; };
+		B26886C2191975C000E5A969 /* NOCContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCContentController.h; path = NOC/NOCContentController.h; sourceTree = "<group>"; };
+		B26886C3191975C000E5A969 /* NOCContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCContentController.m; path = NOC/NOCContentController.m; sourceTree = "<group>"; };
+		B26886C5191978CB00E5A969 /* NOCLabelsRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabelsRegistry.h; path = NOC/NOCLabelsRegistry.h; sourceTree = "<group>"; };
+		B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabelsRegistry.m; path = NOC/NOCLabelsRegistry.m; sourceTree = "<group>"; };
 		C3D5B27CF6A94B96A7D7C49B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +272,10 @@
 			children = (
 				B26886BF1917CF0F00E5A969 /* NOCVisibleLabels.h */,
 				B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */,
+				B26886C2191975C000E5A969 /* NOCContentController.h */,
+				B26886C3191975C000E5A969 /* NOCContentController.m */,
+				B26886C5191978CB00E5A969 /* NOCLabelsRegistry.h */,
+				B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */,
 			);
 			name = NOC;
 			sourceTree = "<group>";
@@ -386,6 +396,7 @@
 				535682BE18F3670300BAAD62 /* AAPLWebViewController.m in Sources */,
 				535682BB18F3670300BAAD62 /* AAPLTextFieldViewController.m in Sources */,
 				535682BF18F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m in Sources */,
+				B26886C7191978CB00E5A969 /* NOCLabelsRegistry.m in Sources */,
 				535682B718F3670300BAAD62 /* AAPLSliderViewController.m in Sources */,
 				535682B918F3670300BAAD62 /* AAPLStepperViewController.m in Sources */,
 				535682AA18F3670300BAAD62 /* AAPLAppDelegate.m in Sources */,
@@ -398,6 +409,7 @@
 				535682A718F3670300BAAD62 /* AAPLActionSheetViewController.m in Sources */,
 				5356824A18F3656900BAAD62 /* main.m in Sources */,
 				535682B118F3670300BAAD62 /* AAPLImageViewController.m in Sources */,
+				B26886C4191975C000E5A969 /* NOCContentController.m in Sources */,
 				535682A918F3670300BAAD62 /* AAPLAlertViewController.m in Sources */,
 				535682B218F3670300BAAD62 /* AAPLMasterViewController.m in Sources */,
 			);

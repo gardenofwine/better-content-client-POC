@@ -10,39 +10,25 @@
 
 #import "NOCVisibleLabels.h"
 
-@interface NOCVisibleLabels ()
-
-@property (nonatomic) NSMutableDictionary *visibleLabels;
-@end
-
-
 @implementation NOCVisibleLabels
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.visibleLabels = [NSMutableDictionary new];
-    }
-    return self;
-}
 
 - (NSDictionary *)currentVisibleLabels{
     UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+
+    NSMutableDictionary *visibleLabels = [NSMutableDictionary new];
     
-    [self collectVisibleLabels:[topWindow subviews]];
-    
-    return self.visibleLabels;
+    [self collectVisibleLabels:[topWindow subviews] inDictionary:visibleLabels];
+    return visibleLabels;
 }
 
-- (void)collectVisibleLabels:(NSArray *)views{
+- (void)collectVisibleLabels:(NSArray *)views inDictionary:(NSMutableDictionary *)labelDictionary{
     __weak typeof(self) weakSelf = self;
     [views bk_each:^(UIView *view) {
         if ([view isKindOfClass:[UILabel class]]){
-            [weakSelf.visibleLabels setObject:view forKey:[weakSelf memoryAddress:view]];
+            [labelDictionary setObject:view forKey:[weakSelf memoryAddress:view]];
         }
         
-        [weakSelf collectVisibleLabels:[view subviews]];
+        [weakSelf collectVisibleLabels:[view subviews] inDictionary:labelDictionary];
     }];
 }
 
