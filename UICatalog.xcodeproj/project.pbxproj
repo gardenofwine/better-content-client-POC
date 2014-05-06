@@ -43,6 +43,7 @@
 		53874F9918F36B1800510922 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53874F9718F36B1800510922 /* Localizable.strings */; };
 		96F3AAABBE7747FAB499EF62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE392CD34FA43E98682D0D2 /* libPods.a */; };
 		B244DDA21910CB2500ED0005 /* NOCNavigationControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */; };
+		B26886C11917CF0F00E5A969 /* NOCVisibleLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		7EE392CD34FA43E98682D0D2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B244DDA01910CB2500ED0005 /* NOCNavigationControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCNavigationControllerTableViewController.h; sourceTree = "<group>"; };
 		B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCNavigationControllerTableViewController.m; sourceTree = "<group>"; };
+		B26886BF1917CF0F00E5A969 /* NOCVisibleLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCVisibleLabels.h; path = NOC/NOCVisibleLabels.h; sourceTree = "<group>"; };
+		B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCVisibleLabels.m; path = NOC/NOCVisibleLabels.m; sourceTree = "<group>"; };
 		C3D5B27CF6A94B96A7D7C49B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +135,7 @@
 		5356823118F3656900BAAD62 = {
 			isa = PBXGroup;
 			children = (
+				B26886BE1917CED700E5A969 /* NOC */,
 				3EC6487218FF8A5000024205 /* ReadMe.txt */,
 				5356824318F3656900BAAD62 /* UICatalog */,
 				5356823C18F3656900BAAD62 /* Frameworks */,
@@ -257,6 +261,15 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		B26886BE1917CED700E5A969 /* NOC */ = {
+			isa = PBXGroup;
+			children = (
+				B26886BF1917CF0F00E5A969 /* NOCVisibleLabels.h */,
+				B26886C01917CF0F00E5A969 /* NOCVisibleLabels.m */,
+			);
+			name = NOC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,6 +390,7 @@
 				535682B918F3670300BAAD62 /* AAPLStepperViewController.m in Sources */,
 				535682AA18F3670300BAAD62 /* AAPLAppDelegate.m in Sources */,
 				535682B518F3670300BAAD62 /* AAPLProgressViewController.m in Sources */,
+				B26886C11917CF0F00E5A969 /* NOCVisibleLabels.m in Sources */,
 				535682AD18F3670300BAAD62 /* AAPLCustomToolbarViewController.m in Sources */,
 				535682A818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m in Sources */,
 				535682B818F3670300BAAD62 /* AAPLSplitViewControllerDelegate.m in Sources */,
@@ -497,6 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GTL-ecdvghiqoqaxovbkesgxshsgtmds/Build/Products/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UICatalog/UICatalog-Prefix.pch";
 				INFOPLIST_FILE = "UICatalog/UICatalog-Info.plist";
@@ -511,6 +529,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GTL-ecdvghiqoqaxovbkesgxshsgtmds/Build/Products/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UICatalog/UICatalog-Prefix.pch";
 				INFOPLIST_FILE = "UICatalog/UICatalog-Info.plist";
