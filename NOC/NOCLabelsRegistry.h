@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NOCLabelsRegistryDelegate.h"
 
 @interface NOCLabelsRegistry : NSObject
+
+@property (nonatomic, weak) id <NOCLabelsRegistryDelegate> delegate;
+- (NSArray *)currentVisibleNOCLabels;
+- (void)setCurrentVisibleLabels:(NSDictionary *)labelsDict;
 
 @end

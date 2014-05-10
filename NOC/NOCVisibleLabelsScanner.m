@@ -8,9 +8,9 @@
 
 #import <BlocksKit.h>
 
-#import "NOCVisibleLabels.h"
+#import "NOCVisibleLabelsScanner.h"
 
-@implementation NOCVisibleLabels
+@implementation NOCVisibleLabelsScanner
 
 - (NSDictionary *)currentVisibleLabels{
     UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
@@ -25,6 +25,7 @@
     __weak typeof(self) weakSelf = self;
     [views bk_each:^(UIView *view) {
         if ([view isKindOfClass:[UILabel class]]){
+            // TODO only add labels that are visible on sceen
             [labelDictionary setObject:view forKey:[weakSelf memoryAddress:view]];
         }
         

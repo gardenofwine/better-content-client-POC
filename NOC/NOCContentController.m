@@ -8,16 +8,22 @@
 
 #import <BlocksKit.h>
 #import "NOCContentController.h"
-#import "NOCVisibleLabels.h"
+#import "NOCLabelsRegistry.h"
+#import "NOCLabelsRegistryDelegate.h"
+#import "NOCVisibleLabelsScanner.h"
+#import "NOCLabel.h"
 
-@interface NOCContentController ()
-@property (nonatomic) NOCVisibleLabels *visibleLabels;
+@interface NOCContentController () <NOCLabelsRegistryDelegate>
+@property (nonatomic) NOCVisibleLabelsScanner *visibleLabelsScanner;
+@property (nonatomic) NOCLabelsRegistry *labelRegistry;
 @end
 
 @implementation NOCContentController
 
 - (void)startLiveContentEditing{
-    self.visibleLabels = [NOCVisibleLabels new];
+    self.visibleLabelsScanner = [NOCVisibleLabelsScanner new];
+    self.labelRegistry = [NOCLabelsRegistry new];
+    self.labelRegistry.delegate = self;
     [self initiateLabelScanningTask];
 }
 
@@ -25,17 +31,19 @@
     
 }
 
+#pragma mark - NOCLabelRegisrtyDelegate
+- (void)visibleLabelsDidChange{
+    NSLog(@"** labels changed");
+    NSLog(@"** number of visible labels:%d",[self.labelRegistry currentVisibleNOCLabels].count);
+}
+
 #pragma mark - helper methods
 
 - (void)initiateLabelScanningTask{
     __weak __typeof(&*self)weakSelf = self;
     [NSTimer bk_scheduledTimerWithTimeInterval:1 block:^(NSTimer *timer) {
-        NSDictionary *visibleLabelsDict = [weakSelf.visibleLabels currentVisibleLabels];
-        [visibleLabelsDict bk_each:^(id key, id obj) {
-            UILabel *label = (UILabel*) obj;
-            NSLog(@"%@: %@",key, label.text);
-            [weakSelf shortenLabel:label];
-        }];
+        NSDictionary *visibleLabelsDict = [weakSelf.visibleLabelsScanner currentVisibleLabels];
+        [self.labelRegistry setCurrentVisibleLabels:visibleLabelsDict];
     } repeats:YES];
 }
 

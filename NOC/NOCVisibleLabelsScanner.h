@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NOCVisibleLabels : NSObject
+@interface NOCVisibleLabelsScanner : NSObject
 
 - (NSDictionary *)currentVisibleLabels;
 
