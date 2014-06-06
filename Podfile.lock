@@ -14,11 +14,14 @@ PODS:
   - BlocksKit/UIKit (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
   - BlocksKit
+  - SocketRocket
 
 SPEC CHECKSUMS:
-  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
+  BlocksKit: 49fda17cbd628f3d6683f62de57edeaa315b386c
+  SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.32.1

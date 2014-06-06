@@ -11,7 +11,7 @@
 @interface NOCLabel : NSObject
 
 @property (nonatomic) NSString *key;
-@property (nonatomic) UILabel *label;
+@property (nonatomic, weak) UILabel *label;
 
 -(id)initWithKey:(NSString *)key label:(UILabel *)label;
 @end

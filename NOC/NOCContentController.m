@@ -7,15 +7,21 @@
 //
 
 #import <BlocksKit.h>
+#import "SRWebSocket.h"
 #import "NOCContentController.h"
 #import "NOCLabelsRegistry.h"
 #import "NOCLabelsRegistryDelegate.h"
 #import "NOCVisibleLabelsScanner.h"
 #import "NOCLabel.h"
 
-@interface NOCContentController () <NOCLabelsRegistryDelegate>
+#define WEBSOCKET_URL @"ws://localhost"
+#define WEBSOCKET_PORT @":5000"
+
+@interface NOCContentController () <NOCLabelsRegistryDelegate, SRWebSocketDelegate>
 @property (nonatomic) NOCVisibleLabelsScanner *visibleLabelsScanner;
 @property (nonatomic) NOCLabelsRegistry *labelRegistry;
+
+@property (nonatomic) SRWebSocket *webSocket;
 @end
 
 @implementation NOCContentController
@@ -25,16 +31,56 @@
     self.labelRegistry = [NOCLabelsRegistry new];
     self.labelRegistry.delegate = self;
     [self initiateLabelScanningTask];
+    
+    [self connectWebSocket];
+    
 }
 
 - (void)stopLiveContentEditing{
     
 }
 
+#pragma mark - RocektSocket
+- (void)connectWebSocket {
+    self.webSocket.delegate = nil;
+    self.webSocket = nil;
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", WEBSOCKET_URL, WEBSOCKET_PORT];
+    SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
+    newWebSocket.delegate = self;
+    
+    [newWebSocket open];
+}
+
+#pragma mark - RocektSocketDelegate
+- (void)webSocketDidOpen:(SRWebSocket *)newWebSocket {
+    NSLog(@"** webSocketDidOpen");
+    self.webSocket = newWebSocket;
+    NSData *handshake = [NSJSONSerialization dataWithJSONObject:@{@"type":@"register", @"data": @"nativeApp"} options:kNilOptions error:nil];
+    [self.webSocket send:handshake];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
+    NSLog(@"** webSocket:didFailWithError");
+//    [self connectWebSocket];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code
+           reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    NSLog(@"** webSocket:didCloseWithCode");
+    [self connectWebSocket];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
+    NSLog(@"** %@", message);
+}
+
 #pragma mark - NOCLabelRegisrtyDelegate
 - (void)visibleLabelsDidChange{
     NSLog(@"** labels changed");
     NSLog(@"** number of visible labels:%d",[self.labelRegistry currentVisibleNOCLabels].count);
+    NSData *labels = [NSJSONSerialization dataWithJSONObject:@{@"type":@"labelMap", @"data": [self.labelRegistry labelsJSON]} options:kNilOptions error:nil];
+    [self.webSocket send:labels];
 }
 
 #pragma mark - helper methods

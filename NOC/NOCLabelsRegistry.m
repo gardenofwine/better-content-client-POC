@@ -37,11 +37,17 @@
     if (self.visibleLabelsChanged) [self.delegate visibleLabelsDidChange];
 }
 
+- (NSArray *)labelsJSON{
+    return [self.visibleNOCLabels bk_map:^id(NOCLabel *nocLabel) {
+        return @{@"key": nocLabel.key, @"text": nocLabel.label.text};
+    }];
+}
 
 #pragma mark - helpers
 - (void)removeNOCLabelsNotVisibleInDict:(NSDictionary *)labelsDict{
     __weak __typeof(&*self)weakSelf = self;
     [self.visibleNOCLabels bk_each:^(NOCLabel *nocLabel) {
+        if (nocLabel.label == NULL) NSLog(@"** NULL");
         if (![labelsDict valueForKey:nocLabel.key]){
             [weakSelf.visibleNOCLabels removeObject:nocLabel];
             weakSelf.visibleLabelsChanged = YES;

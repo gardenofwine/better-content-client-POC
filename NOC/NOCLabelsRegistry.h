@@ -15,4 +15,6 @@
 - (NSArray *)currentVisibleNOCLabels;
 - (void)setCurrentVisibleLabels:(NSDictionary *)labelsDict;
 
+- (NSArray *)labelsJSON;
+
 @end
