@@ -19,6 +19,13 @@
     return self;
 }
 
+- (NSString *)labelText{
+    if (self.label) return self.label.text;
+    
+    return @"";
+}
+
+
 - (BOOL)isEqual:(id)object{
     NOCLabel *otherNOCLabel = (NOCLabel *)object;
     return [self.key isEqual:otherNOCLabel.key];

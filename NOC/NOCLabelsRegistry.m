@@ -38,8 +38,9 @@
 }
 
 - (NSArray *)labelsJSON{
+    // TODO only send the labels that are not null
     return [self.visibleNOCLabels bk_map:^id(NOCLabel *nocLabel) {
-        return @{@"key": nocLabel.key, @"text": nocLabel.label.text};
+        return @{@"key": nocLabel.key, @"text": [nocLabel labelText]};
     }];
 }
 

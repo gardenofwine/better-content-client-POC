@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSString *key;
 @property (nonatomic, weak) UILabel *label;
-
 -(id)initWithKey:(NSString *)key label:(UILabel *)label;
+- (NSString *)labelText;
 @end

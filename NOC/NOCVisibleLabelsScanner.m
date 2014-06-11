@@ -25,8 +25,11 @@
     __weak typeof(self) weakSelf = self;
     [views bk_each:^(UIView *view) {
         if ([view isKindOfClass:[UILabel class]]){
+            UILabel *label = (UILabel *)view;
             // TODO only add labels that are visible on sceen
-            [labelDictionary setObject:view forKey:[weakSelf memoryAddress:view]];
+            if (label.text && !label.hidden){
+                [labelDictionary setObject:view forKey:[weakSelf memoryAddress:view]];
+            }
         }
         
         [weakSelf collectVisibleLabels:[view subviews] inDictionary:labelDictionary];

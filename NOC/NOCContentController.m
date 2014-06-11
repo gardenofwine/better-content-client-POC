@@ -80,6 +80,7 @@
     NSLog(@"** labels changed");
     NSLog(@"** number of visible labels:%d",[self.labelRegistry currentVisibleNOCLabels].count);
     NSData *labels = [NSJSONSerialization dataWithJSONObject:@{@"type":@"labelMap", @"data": [self.labelRegistry labelsJSON]} options:kNilOptions error:nil];
+    NSLog(@"** sending json %@", [self.labelRegistry labelsJSON]);
     [self.webSocket send:labels];
 }
 
