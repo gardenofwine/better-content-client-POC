@@ -72,7 +72,10 @@
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"** %@", message);
+    NSLog(@"** string received %@", message);
+    NSData *jsonData = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSObject *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSLog(@"** json received %@", json);
 }
 
 #pragma mark - NOCLabelRegisrtyDelegate
