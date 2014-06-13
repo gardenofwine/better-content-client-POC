@@ -13,9 +13,10 @@
 #import "NOCLabelsRegistryDelegate.h"
 #import "NOCVisibleLabelsScanner.h"
 #import "NOCLabel.h"
+#import "NOCLabelUpdater.h"
 
-#define WEBSOCKET_URL @"ws://localhost"
-#define WEBSOCKET_PORT @":5000"
+#define WEBSOCKET_URL @"http://bettercontent.herokuapp.com/"
+#define WEBSOCKET_PORT @""
 
 @interface NOCContentController () <NOCLabelsRegistryDelegate, SRWebSocketDelegate>
 @property (nonatomic) NOCVisibleLabelsScanner *visibleLabelsScanner;
@@ -74,7 +75,9 @@
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     NSLog(@"** string received %@", message);
     NSData *jsonData = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSObject *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    
+    [NOCLabelUpdater updateLabelsInRegistry:self.labelRegistry FromDict:json];
     NSLog(@"** json received %@", json);
 }
 
@@ -82,8 +85,7 @@
 - (void)visibleLabelsDidChange{
     NSLog(@"** labels changed");
     NSLog(@"** number of visible labels:%d",[self.labelRegistry currentVisibleNOCLabels].count);
-    NSData *labels = [NSJSONSerialization dataWithJSONObject:@{@"type":@"labelMap", @"data": [self.labelRegistry labelsJSON]} options:kNilOptions error:nil];
-    NSLog(@"** sending json %@", [self.labelRegistry labelsJSON]);
+    NSData *labels = [NSJSONSerialization dataWithJSONObject:@{@"type":@"labelMap", @"data": [self labelsJSON]} options:kNilOptions error:nil];
     [self.webSocket send:labels];
 }
 
@@ -93,7 +95,12 @@
     __weak __typeof(&*self)weakSelf = self;
     [NSTimer bk_scheduledTimerWithTimeInterval:1 block:^(NSTimer *timer) {
         NSDictionary *visibleLabelsDict = [weakSelf.visibleLabelsScanner currentVisibleLabels];
-        [self.labelRegistry setCurrentVisibleLabels:visibleLabelsDict];
+        NSArray *nocLabelsArray = [visibleLabelsDict.allKeys bk_map:^id(NSString *key) {
+            return [[NOCLabel alloc] initWithKey:key label:[visibleLabelsDict valueForKey:key]];
+        }];
+
+        // TODO transfer all the labels to be a NSArray of NOCLables
+        [weakSelf.labelRegistry setCurrentVisibleNOCLabels:nocLabelsArray];
     } repeats:YES];
 }
 
@@ -103,6 +110,14 @@
     label.text = [text substringToIndex:label.text.length -1];
     return YES;
 }
+
+- (NSArray *)labelsJSON{
+    // TODO only send the labels that are not null
+    return [self.labelRegistry.currentVisibleNOCLabels bk_map:^id(NOCLabel *nocLabel) {
+        return @{@"key": nocLabel.key, @"text": [nocLabel labelText]};
+    }];
+}
+
 
 #pragma mark - singelton
 

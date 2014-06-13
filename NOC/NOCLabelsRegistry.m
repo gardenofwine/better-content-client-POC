@@ -30,36 +30,28 @@
     return self.visibleNOCLabels;
 }
 
-- (void)setCurrentVisibleLabels:(NSDictionary *)labelsDict{
+- (void)setCurrentVisibleNOCLabels:(NSArray *)currentVisibleNOCLabels{
     self.visibleLabelsChanged = NO;
-    [self removeNOCLabelsNotVisibleInDict:labelsDict];
-    [self updateLabelsFromDict:labelsDict];
-    if (self.visibleLabelsChanged) [self.delegate visibleLabelsDidChange];
-}
-
-- (NSArray *)labelsJSON{
-    // TODO only send the labels that are not null
-    return [self.visibleNOCLabels bk_map:^id(NOCLabel *nocLabel) {
-        return @{@"key": nocLabel.key, @"text": [nocLabel labelText]};
-    }];
+    [self intersectCurrentLabelsWithLabelsFromArray:currentVisibleNOCLabels];
+    [self updateCurrentLabelsFromArray:currentVisibleNOCLabels];
+    if (self.visibleLabelsChanged) {
+        [self.delegate visibleLabelsDidChange];        
+    }
 }
 
 #pragma mark - helpers
-- (void)removeNOCLabelsNotVisibleInDict:(NSDictionary *)labelsDict{
-    __weak __typeof(&*self)weakSelf = self;
-    [self.visibleNOCLabels bk_each:^(NOCLabel *nocLabel) {
-        if (nocLabel.label == NULL) NSLog(@"** NULL");
-        if (![labelsDict valueForKey:nocLabel.key]){
-            [weakSelf.visibleNOCLabels removeObject:nocLabel];
-            weakSelf.visibleLabelsChanged = YES;
-        }
-    }];
+- (void)intersectCurrentLabelsWithLabelsFromArray:(NSArray *)labelsArray{
+    NSMutableSet *currentNOCLabelsSet = [NSMutableSet setWithArray:self.visibleNOCLabels];
+    NSMutableSet *newNOCLabelsSet = [NSMutableSet setWithArray:labelsArray];
+    [currentNOCLabelsSet intersectSet:newNOCLabelsSet];
+    if (currentNOCLabelsSet.count < self.visibleNOCLabels.count) self.visibleLabelsChanged = YES;
+    NSLog(@"** removing %i labels", self.visibleNOCLabels.count - currentNOCLabelsSet.count);
+    self.visibleNOCLabels = [[currentNOCLabelsSet allObjects] mutableCopy];
 }
 
-- (void)updateLabelsFromDict:(NSDictionary *)labelsDict{
+- (void)updateCurrentLabelsFromArray:(NSArray *)labelsArray{
     __weak __typeof(&*self)weakSelf = self;
-    [labelsDict.allKeys bk_each:^(NSString *key) {
-        NOCLabel *newNOCLabel = [[NOCLabel alloc] initWithKey:key label:[labelsDict valueForKey:key]];
+    [labelsArray bk_each:^(NOCLabel *newNOCLabel) {
         if ([weakSelf.visibleNOCLabels containsObject:newNOCLabel]){
             int nocLabelIndex = [weakSelf.visibleNOCLabels indexOfObject:newNOCLabel];
             NOCLabel *currentNOCLabel = [weakSelf.visibleNOCLabels objectAtIndex:nocLabelIndex];

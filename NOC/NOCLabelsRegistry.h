@@ -12,9 +12,10 @@
 @interface NOCLabelsRegistry : NSObject
 
 @property (nonatomic, weak) id <NOCLabelsRegistryDelegate> delegate;
-- (NSArray *)currentVisibleNOCLabels;
-- (void)setCurrentVisibleLabels:(NSDictionary *)labelsDict;
+@property (nonatomic) NSArray *currentVisibleNOCLabels;
+//- (NSArray *)currentVisibleNOCLabels;
+//- (void)setCurrentVisibleLabels:(NSDictionary *)labelsDict;
 
-- (NSArray *)labelsJSON;
+//- (NSArray *)labelsJSON;
 
 @end

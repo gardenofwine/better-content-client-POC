@@ -47,6 +47,7 @@
 		B26886C4191975C000E5A969 /* NOCContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C3191975C000E5A969 /* NOCContentController.m */; };
 		B26886C7191978CB00E5A969 /* NOCLabelsRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */; };
 		B2AA9C18191E655F00767C93 /* NOCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AA9C17191E655F00767C93 /* NOCLabel.m */; };
+		B2FC722E194AF1EC00393974 /* NOCLabelUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,8 @@
 		B2AA9C16191E655F00767C93 /* NOCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabel.h; path = NOC/models/NOCLabel.h; sourceTree = "<group>"; };
 		B2AA9C17191E655F00767C93 /* NOCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabel.m; path = NOC/models/NOCLabel.m; sourceTree = "<group>"; };
 		B2AA9C1A191E704D00767C93 /* NOCLabelsRegistryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NOCLabelsRegistryDelegate.h; path = NOC/models/NOCLabelsRegistryDelegate.h; sourceTree = "<group>"; };
+		B2FC722C194AF1EC00393974 /* NOCLabelUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabelUpdater.h; path = NOC/NOCLabelUpdater.h; sourceTree = "<group>"; };
+		B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabelUpdater.m; path = NOC/NOCLabelUpdater.m; sourceTree = "<group>"; };
 		C3D5B27CF6A94B96A7D7C49B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,10 +278,12 @@
 			isa = PBXGroup;
 			children = (
 				B2AA9C15191E654400767C93 /* Models */,
-				B26886BF1917CF0F00E5A969 /* NOCVisibleLabelsScanner.h */,
-				B26886C01917CF0F00E5A969 /* NOCVisibleLabelsScanner.m */,
 				B26886C2191975C000E5A969 /* NOCContentController.h */,
 				B26886C3191975C000E5A969 /* NOCContentController.m */,
+				B2FC722C194AF1EC00393974 /* NOCLabelUpdater.h */,
+				B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */,
+				B26886BF1917CF0F00E5A969 /* NOCVisibleLabelsScanner.h */,
+				B26886C01917CF0F00E5A969 /* NOCVisibleLabelsScanner.m */,
 			);
 			name = NOC;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				535682AE18F3670300BAAD62 /* AAPLDatePickerController.m in Sources */,
+				B2FC722E194AF1EC00393974 /* NOCLabelUpdater.m in Sources */,
 				535682AB18F3670300BAAD62 /* AAPLButtonViewController.m in Sources */,
 				535682B618F3670300BAAD62 /* AAPLSegmentedControlViewController.m in Sources */,
 				535682B018F3670300BAAD62 /* AAPLDefaultToolbarViewController.m in Sources */,
