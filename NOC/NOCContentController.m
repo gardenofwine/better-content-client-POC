@@ -75,9 +75,9 @@
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     NSLog(@"** string received %@", message);
     NSData *jsonData = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     
-    [NOCLabelUpdater updateLabelsInRegistry:self.labelRegistry FromDict:json];
+    [NOCLabelUpdater updateLabelsInRegistry:self.labelRegistry FromArray:json];
     NSLog(@"** json received %@", json);
 }
 

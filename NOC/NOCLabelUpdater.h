@@ -11,6 +11,6 @@
 
 @interface NOCLabelUpdater : NSObject
 
-+(void) updateLabelsInRegistry:(NOCLabelsRegistry *)labelRegistry FromDict:(NSDictionary *)updatedLabelsDict;
++(void) updateLabelsInRegistry:(NOCLabelsRegistry *)labelRegistry FromArray:(NSArray *)updatedLabelsArray;
 
 @end
