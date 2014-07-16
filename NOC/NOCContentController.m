@@ -15,8 +15,10 @@
 #import "NOCLabel.h"
 #import "NOCLabelUpdater.h"
 
-#define WEBSOCKET_URL @"http://bettercontent.herokuapp.com/"
-#define WEBSOCKET_PORT @""
+#define WEBSOCKET_URL @"ws://localhost"
+#define WEBSOCKET_PORT @":5000"
+//#define WEBSOCKET_URL @"http://bettercontent.herokuapp.com/"
+//#define WEBSOCKET_PORT @""
 
 @interface NOCContentController () <NOCLabelsRegistryDelegate, SRWebSocketDelegate>
 @property (nonatomic) NOCVisibleLabelsScanner *visibleLabelsScanner;
@@ -26,6 +28,18 @@
 @end
 
 @implementation NOCContentController
+
++ (void)load {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(beginMonitoringLabels)
+                                                 name:UIApplicationDidFinishLaunchingNotification
+                                              object:nil];
+}
+
++ (void)beginMonitoringLabels{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidFinishLaunchingNotification object:nil];
+    [[NOCContentController sharedInstance] startLiveContentEditing];
+}
 
 - (void)startLiveContentEditing{
     self.visibleLabelsScanner = [NOCVisibleLabelsScanner new];
@@ -62,7 +76,7 @@
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
-    NSLog(@"** webSocket:didFailWithError");
+    NSLog(@"** webSocket:didFailWithError %@", error);
 //    [self connectWebSocket];
 }
 
