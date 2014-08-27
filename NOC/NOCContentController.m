@@ -15,25 +15,25 @@
 #import "NOCLabel.h"
 #import "NOCLabelUpdater.h"
 
-#define WEBSOCKET_URL @"ws://localhost"
-#define WEBSOCKET_PORT @":5000"
+//#define WEBSOCKET_URL @"ws://localhost"
+//#define WEBSOCKET_PORT @":5000"
 //#define WEBSOCKET_URL @"http://bettercontent.herokuapp.com/"
 //#define WEBSOCKET_PORT @""
 
-@interface NOCContentController () <NOCLabelsRegistryDelegate, SRWebSocketDelegate>
+@interface NOCContentController () <NOCLabelsRegistryDelegate>//, SRWebSocketDelegate>
 @property (nonatomic) NOCVisibleLabelsScanner *visibleLabelsScanner;
 @property (nonatomic) NOCLabelsRegistry *labelRegistry;
 
-@property (nonatomic) SRWebSocket *webSocket;
+//@property (nonatomic) SRWebSocket *webSocket;
 @end
 
 @implementation NOCContentController
 
 + (void)load {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(beginMonitoringLabels)
-                                                 name:UIApplicationDidFinishLaunchingNotification
-                                              object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(beginMonitoringLabels)
+//                                                 name:UIApplicationDidFinishLaunchingNotification
+//                                              object:nil];
 }
 
 + (void)beginMonitoringLabels{
@@ -47,7 +47,7 @@
     self.labelRegistry.delegate = self;
     [self initiateLabelScanningTask];
     
-    [self connectWebSocket];
+//    [self connectWebSocket];
     
 }
 
@@ -56,51 +56,51 @@
 }
 
 #pragma mark - RocektSocket
-- (void)connectWebSocket {
-    self.webSocket.delegate = nil;
-    self.webSocket = nil;
-    
-    NSString *urlString = [NSString stringWithFormat:@"%@%@", WEBSOCKET_URL, WEBSOCKET_PORT];
-    SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
-    newWebSocket.delegate = self;
-    
-    [newWebSocket open];
-}
+//- (void)connectWebSocket {
+//    self.webSocket.delegate = nil;
+//    self.webSocket = nil;
+//    
+//    NSString *urlString = [NSString stringWithFormat:@"%@%@", WEBSOCKET_URL, WEBSOCKET_PORT];
+//    SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
+//    newWebSocket.delegate = self;
+//    
+//    [newWebSocket open];
+//}
 
-#pragma mark - RocektSocketDelegate
-- (void)webSocketDidOpen:(SRWebSocket *)newWebSocket {
-    NSLog(@"** webSocketDidOpen");
-    self.webSocket = newWebSocket;
-    NSData *handshake = [NSJSONSerialization dataWithJSONObject:@{@"type":@"register", @"data": @"nativeApp"} options:kNilOptions error:nil];
-    [self.webSocket send:handshake];
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
-    NSLog(@"** webSocket:didFailWithError %@", error);
+//#pragma mark - RocektSocketDelegate
+//- (void)webSocketDidOpen:(SRWebSocket *)newWebSocket {
+//    NSLog(@"** webSocketDidOpen");
+//    self.webSocket = newWebSocket;
+//    NSData *handshake = [NSJSONSerialization dataWithJSONObject:@{@"type":@"register", @"data": @"nativeApp"} options:kNilOptions error:nil];
+//    [self.webSocket send:handshake];
+//}
+//
+//- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
+//    NSLog(@"** webSocket:didFailWithError %@", error);
+////    [self connectWebSocket];
+//}
+//
+//- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code
+//           reason:(NSString *)reason wasClean:(BOOL)wasClean {
+//    NSLog(@"** webSocket:didCloseWithCode");
 //    [self connectWebSocket];
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code
-           reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    NSLog(@"** webSocket:didCloseWithCode");
-    [self connectWebSocket];
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"** string received %@", message);
-    NSData *jsonData = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    
-    [NOCLabelUpdater updateLabelsInRegistry:self.labelRegistry FromArray:json];
-    NSLog(@"** json received %@", json);
-}
+//}
+//
+//- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
+//    NSLog(@"** string received %@", message);
+//    NSData *jsonData = [message dataUsingEncoding:NSUTF8StringEncoding];
+//    NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+//    
+//    [NOCLabelUpdater updateLabelsInRegistry:self.labelRegistry FromArray:json];
+//    NSLog(@"** json received %@", json);
+//}
 
 #pragma mark - NOCLabelRegisrtyDelegate
 - (void)visibleLabelsDidChange{
     NSLog(@"** labels changed");
     NSLog(@"** number of visible labels:%d",[self.labelRegistry currentVisibleNOCLabels].count);
     NSData *labels = [NSJSONSerialization dataWithJSONObject:@{@"type":@"labelMap", @"data": [self labelsJSON]} options:kNilOptions error:nil];
-    [self.webSocket send:labels];
+//    [self.webSocket send:labels];
 }
 
 #pragma mark - helper methods

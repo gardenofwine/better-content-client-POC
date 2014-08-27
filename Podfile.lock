@@ -1,34 +1,46 @@
 PODS:
-  - BetterContent (0.1.0)
-  - BlocksKit (2.2.2):
+  - BetterContent (0.1.0):
+    - BetterContent/Core
+    - BetterContent/Scanner
+    - BlocksKit
+    - SocketRocket
+  - BetterContent/Core (0.1.0):
+    - BlocksKit
+    - SocketRocket
+  - BetterContent/Scanner (0.1.0):
+    - BetterContent/Scanner/Components
+    - BlocksKit
+    - SocketRocket
+  - BetterContent/Scanner/Components (0.1.0):
+    - BlocksKit
+    - SocketRocket
+  - BlocksKit (2.2.5):
     - BlocksKit/All
-  - BlocksKit/All (2.2.2):
+  - BlocksKit/All (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
     - BlocksKit/MessageUI
     - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.2)
-  - BlocksKit/DynamicDelegate (2.2.2)
-  - BlocksKit/MessageUI (2.2.2):
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.2):
+  - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
   - BetterContent (from `../pod`)
-  - BlocksKit
-  - SocketRocket
 
 EXTERNAL SOURCES:
   BetterContent:
     :path: ../pod
 
 SPEC CHECKSUMS:
-  BetterContent: 7567c0ea0a9f4c6c9d82ca1d9ace7d12ce56e04d
-  BlocksKit: 49fda17cbd628f3d6683f62de57edeaa315b386c
+  BetterContent: 26f16583364717dacf179569d10b1f2aa4225d73
+  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.33.1
