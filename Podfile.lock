@@ -3,16 +3,20 @@ PODS:
     - BetterContent/Core
     - BetterContent/Scanner
     - BlocksKit
+    - MAZeroingWeakRef
     - SocketRocket
   - BetterContent/Core (0.1.0):
     - BlocksKit
+    - MAZeroingWeakRef
     - SocketRocket
   - BetterContent/Scanner (0.1.0):
     - BetterContent/Scanner/Components
     - BlocksKit
+    - MAZeroingWeakRef
     - SocketRocket
   - BetterContent/Scanner/Components (0.1.0):
     - BlocksKit
+    - MAZeroingWeakRef
     - SocketRocket
   - BlocksKit (2.2.5):
     - BlocksKit/All
@@ -29,6 +33,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - MAZeroingWeakRef (1.0)
   - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
@@ -39,8 +44,9 @@ EXTERNAL SOURCES:
     :path: ../pod
 
 SPEC CHECKSUMS:
-  BetterContent: 26f16583364717dacf179569d10b1f2aa4225d73
+  BetterContent: 11184006771c850c9030ada2922c71068bf0c4e3
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  MAZeroingWeakRef: 1d0ed4002e88a7b924e096f8b21d07fac435a6aa
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.33.1

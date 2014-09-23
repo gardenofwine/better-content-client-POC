@@ -43,11 +43,6 @@
 		53874F9918F36B1800510922 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53874F9718F36B1800510922 /* Localizable.strings */; };
 		96F3AAABBE7747FAB499EF62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE392CD34FA43E98682D0D2 /* libPods.a */; };
 		B244DDA21910CB2500ED0005 /* NOCNavigationControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */; };
-		B26886C11917CF0F00E5A969 /* NOCVisibleLabelsScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C01917CF0F00E5A969 /* NOCVisibleLabelsScanner.m */; };
-		B26886C4191975C000E5A969 /* NOCContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C3191975C000E5A969 /* NOCContentController.m */; };
-		B26886C7191978CB00E5A969 /* NOCLabelsRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */; };
-		B2AA9C18191E655F00767C93 /* NOCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AA9C17191E655F00767C93 /* NOCLabel.m */; };
-		B2FC722E194AF1EC00393974 /* NOCLabelUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,17 +111,6 @@
 		7EE392CD34FA43E98682D0D2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B244DDA01910CB2500ED0005 /* NOCNavigationControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCNavigationControllerTableViewController.h; sourceTree = "<group>"; };
 		B244DDA11910CB2500ED0005 /* NOCNavigationControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCNavigationControllerTableViewController.m; sourceTree = "<group>"; };
-		B26886BF1917CF0F00E5A969 /* NOCVisibleLabelsScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCVisibleLabelsScanner.h; path = NOC/NOCVisibleLabelsScanner.h; sourceTree = "<group>"; };
-		B26886C01917CF0F00E5A969 /* NOCVisibleLabelsScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCVisibleLabelsScanner.m; path = NOC/NOCVisibleLabelsScanner.m; sourceTree = "<group>"; };
-		B26886C2191975C000E5A969 /* NOCContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCContentController.h; path = NOC/NOCContentController.h; sourceTree = "<group>"; };
-		B26886C3191975C000E5A969 /* NOCContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCContentController.m; path = NOC/NOCContentController.m; sourceTree = "<group>"; };
-		B26886C5191978CB00E5A969 /* NOCLabelsRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabelsRegistry.h; path = NOC/NOCLabelsRegistry.h; sourceTree = "<group>"; };
-		B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabelsRegistry.m; path = NOC/NOCLabelsRegistry.m; sourceTree = "<group>"; };
-		B2AA9C16191E655F00767C93 /* NOCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabel.h; path = NOC/models/NOCLabel.h; sourceTree = "<group>"; };
-		B2AA9C17191E655F00767C93 /* NOCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabel.m; path = NOC/models/NOCLabel.m; sourceTree = "<group>"; };
-		B2AA9C1A191E704D00767C93 /* NOCLabelsRegistryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NOCLabelsRegistryDelegate.h; path = NOC/models/NOCLabelsRegistryDelegate.h; sourceTree = "<group>"; };
-		B2FC722C194AF1EC00393974 /* NOCLabelUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NOCLabelUpdater.h; path = NOC/NOCLabelUpdater.h; sourceTree = "<group>"; };
-		B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NOCLabelUpdater.m; path = NOC/NOCLabelUpdater.m; sourceTree = "<group>"; };
 		C3D5B27CF6A94B96A7D7C49B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +132,6 @@
 		5356823118F3656900BAAD62 = {
 			isa = PBXGroup;
 			children = (
-				B26886BE1917CED700E5A969 /* NOC */,
 				3EC6487218FF8A5000024205 /* ReadMe.txt */,
 				5356824318F3656900BAAD62 /* UICatalog */,
 				5356823C18F3656900BAAD62 /* Frameworks */,
@@ -274,32 +257,6 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		B26886BE1917CED700E5A969 /* NOC */ = {
-			isa = PBXGroup;
-			children = (
-				B2AA9C15191E654400767C93 /* Models */,
-				B26886C2191975C000E5A969 /* NOCContentController.h */,
-				B26886C3191975C000E5A969 /* NOCContentController.m */,
-				B2FC722C194AF1EC00393974 /* NOCLabelUpdater.h */,
-				B2FC722D194AF1EC00393974 /* NOCLabelUpdater.m */,
-				B26886BF1917CF0F00E5A969 /* NOCVisibleLabelsScanner.h */,
-				B26886C01917CF0F00E5A969 /* NOCVisibleLabelsScanner.m */,
-			);
-			name = NOC;
-			sourceTree = "<group>";
-		};
-		B2AA9C15191E654400767C93 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B2AA9C16191E655F00767C93 /* NOCLabel.h */,
-				B2AA9C17191E655F00767C93 /* NOCLabel.m */,
-				B26886C5191978CB00E5A969 /* NOCLabelsRegistry.h */,
-				B26886C6191978CB00E5A969 /* NOCLabelsRegistry.m */,
-				B2AA9C1A191E704D00767C93 /* NOCLabelsRegistryDelegate.h */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,13 +360,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				535682AE18F3670300BAAD62 /* AAPLDatePickerController.m in Sources */,
-				B2FC722E194AF1EC00393974 /* NOCLabelUpdater.m in Sources */,
 				535682AB18F3670300BAAD62 /* AAPLButtonViewController.m in Sources */,
 				535682B618F3670300BAAD62 /* AAPLSegmentedControlViewController.m in Sources */,
 				535682B018F3670300BAAD62 /* AAPLDefaultToolbarViewController.m in Sources */,
 				B244DDA21910CB2500ED0005 /* NOCNavigationControllerTableViewController.m in Sources */,
 				535682BD18F3670300BAAD62 /* AAPLTintedToolbarViewController.m in Sources */,
-				B2AA9C18191E655F00767C93 /* NOCLabel.m in Sources */,
 				535682B318F3670300BAAD62 /* AAPLPageControlViewController.m in Sources */,
 				535682BA18F3670300BAAD62 /* AAPLSwitchViewController.m in Sources */,
 				535682AF18F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m in Sources */,
@@ -418,12 +373,10 @@
 				535682BE18F3670300BAAD62 /* AAPLWebViewController.m in Sources */,
 				535682BB18F3670300BAAD62 /* AAPLTextFieldViewController.m in Sources */,
 				535682BF18F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m in Sources */,
-				B26886C7191978CB00E5A969 /* NOCLabelsRegistry.m in Sources */,
 				535682B718F3670300BAAD62 /* AAPLSliderViewController.m in Sources */,
 				535682B918F3670300BAAD62 /* AAPLStepperViewController.m in Sources */,
 				535682AA18F3670300BAAD62 /* AAPLAppDelegate.m in Sources */,
 				535682B518F3670300BAAD62 /* AAPLProgressViewController.m in Sources */,
-				B26886C11917CF0F00E5A969 /* NOCVisibleLabelsScanner.m in Sources */,
 				535682AD18F3670300BAAD62 /* AAPLCustomToolbarViewController.m in Sources */,
 				535682A818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m in Sources */,
 				535682B818F3670300BAAD62 /* AAPLSplitViewControllerDelegate.m in Sources */,
@@ -431,7 +384,6 @@
 				535682A718F3670300BAAD62 /* AAPLActionSheetViewController.m in Sources */,
 				5356824A18F3656900BAAD62 /* main.m in Sources */,
 				535682B118F3670300BAAD62 /* AAPLImageViewController.m in Sources */,
-				B26886C4191975C000E5A969 /* NOCContentController.m in Sources */,
 				535682A918F3670300BAAD62 /* AAPLAlertViewController.m in Sources */,
 				535682B218F3670300BAAD62 /* AAPLMasterViewController.m in Sources */,
 			);
