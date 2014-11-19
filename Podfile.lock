@@ -1,23 +1,10 @@
 PODS:
+  - Apptimize (2.8.3)
   - BetterContent (0.1.0):
-    - BetterContent/Core
-    - BetterContent/Scanner
     - BlocksKit
     - MAZeroingWeakRef
     - SocketRocket
-  - BetterContent/Core (0.1.0):
-    - BlocksKit
-    - MAZeroingWeakRef
-    - SocketRocket
-  - BetterContent/Scanner (0.1.0):
-    - BetterContent/Scanner/Components
-    - BlocksKit
-    - MAZeroingWeakRef
-    - SocketRocket
-  - BetterContent/Scanner/Components (0.1.0):
-    - BlocksKit
-    - MAZeroingWeakRef
-    - SocketRocket
+    - UIImage-ResizeMagick
   - BlocksKit (2.2.5):
     - BlocksKit/All
   - BlocksKit/All (2.2.5):
@@ -35,8 +22,10 @@ PODS:
     - BlocksKit/DynamicDelegate
   - MAZeroingWeakRef (1.0)
   - SocketRocket (0.3.1-beta2)
+  - UIImage-ResizeMagick (0.0.1)
 
 DEPENDENCIES:
+  - Apptimize
   - BetterContent (from `../pod`)
 
 EXTERNAL SOURCES:
@@ -44,9 +33,11 @@ EXTERNAL SOURCES:
     :path: ../pod
 
 SPEC CHECKSUMS:
-  BetterContent: 11184006771c850c9030ada2922c71068bf0c4e3
+  Apptimize: 7f4cfc3d3dfaee5f0d3220ae4fcb6601fd864b07
+  BetterContent: e42d0b596c1f7b7552a91dd5e4fc1929f81ba4cd
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
   MAZeroingWeakRef: 1d0ed4002e88a7b924e096f8b21d07fac435a6aa
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
+  UIImage-ResizeMagick: 6edd4b95aabf4be264bf99147aa27abb319f3c7f
 
 COCOAPODS: 0.33.1

@@ -46,6 +46,9 @@
 */
 
 #import "AAPLAppDelegate.h"
-
+#import "Apptimize.h"
 @implementation AAPLAppDelegate
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application{
+}
 @end

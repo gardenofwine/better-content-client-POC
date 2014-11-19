@@ -16,6 +16,10 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>ApptimizeAppKey</key>
+	<string>B1TH2649n48jq8hA-iim583hMaECaLk</string>
+	<key>ApptimizeLogLevel</key>
+	<string>verbose</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.12</string>
 	<key>CFBundleSignature</key>
@@ -38,6 +42,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BTCURL</key>
+	<string>http://bettercontent.herokuapp.com/</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
